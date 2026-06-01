@@ -13,11 +13,11 @@ export interface CelestialObject {
 }
 
 const Obiekty: CelestialObject[] = [
-    { id: '1', name: 'Syriusz A', type: 'Gwiazda ciągu głównego', distance: '8.6 lat świetlnych', imageUrl: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500' },
-    { id: '2', name: 'Ganimedes', type: 'Księżyc Jowisza', distance: '628.3 mln km (średnio)', imageUrl: 'https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=500' },
-    { id: '3', name: 'Saturn', type: 'Gazowy olbrzym', distance: '1.4 mld km (średnio)', imageUrl: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=500' },
-    { id: '4', name: 'Mgławica NGC 604', type: 'Obszar H II (Mgławica)', distance: '2.73 mln lat świetlnych', imageUrl: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=500' },
-    { id: '5', name: 'Kepler 452-b', type: 'Egzoplaneta (Superziemia)', distance: '1400 lat świetlnych', imageUrl: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500' }
+    { id: '1', name: 'Syriusz A', type: 'Gwiazda ciągu głównego', distance: '8.6 lat świetlnych', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Close-up_of_Sirius.jpg' },
+    { id: '2', name: 'Ganimedes', type: 'Księżyc Jowisza', distance: '628.3 mln km (średnio)', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Ganymede_-_Perijove_34_Composite.png' },
+    { id: '3', name: 'Saturn', type: 'Gazowy olbrzym', distance: '1.4 mld km (średnio)', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Saturn_-_April_25_2016_%2837612580000%29.png' },
+    { id: '4', name: 'Mgławica NGC 604', type: 'Obszar H II (Mgławica)', distance: '2.73 mln lat świetlnych', imageUrl: 'https://gnn.pl/wp-content/uploads/2024/03/webb-peers-into-the-te-1.jpg' },
+    { id: '5', name: 'Kepler 452-b', type: 'Egzoplaneta (Superziemia)', distance: '1400 lat świetlnych', imageUrl: 'https://t3.ftcdn.net/jpg/14/83/00/18/360_F_1483001853_WcZjZI86cE9BFBt8jLPu2otQMHFbuYBI.jpg' }
 ];
 
 export default function App() {
