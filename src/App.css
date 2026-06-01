@@ -7,7 +7,7 @@ body {
 }
 
 .app-theme {
-  min-height: 100vh;
+  min-height: 100vh; /*vh czyli view height, wysokosc oona*/
   display: flex;
   flex-direction: column;
 }
@@ -92,11 +92,15 @@ body {
 
 .object-details h2, .discovery-form-container h2, .catalog-list h2 {
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #ffffff;
   border-bottom: 1px solid #172642;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+.object-details h2{
+  font-size: 1.4rem;
 }
 
 .no-selection {

@@ -3,7 +3,7 @@
         <div className="discovery-form-container">
             <h2>Rejestr Odkryć</h2>
 
-            {/* Czysty formularz HTML. Po kliknięciu submit sam się zresetuje */}
+
             <form className="discovery-form">
                 <div className="form-group">
                     <label>Nazwa obiektu:</label>
