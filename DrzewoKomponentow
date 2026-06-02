@@ -1,0 +1,4 @@
+﻿App (Trzyma główny stan: tablicę obiektów i wybrany obiekt)
+ ├── CatalogList (Wyświetla listę. Otrzymuje tablicę i funkcję zmieniającą wybrany obiekt)
+ ├── ObjectDetails (Otrzymuje wybrany obiekt. Renderuje go warunkowo)
+ └── DiscoveryForm (Posiada lokalne stany dla inputów. Otrzymuje funkcję dodającą do tablicy)
