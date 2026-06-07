@@ -146,3 +146,42 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
+
+.details-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn {
+  background: #172642;
+  color: white;
+  border: 1px solid #2e4a7d;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.action-btn:hover {
+  background: #1e335a;
+}
+
+.delete-btn {
+  background: #7a1f1f;
+  border: 1px solid #992626;
+}
+
+.delete-btn:hover {
+  background: #992626;
+}
+
+.details-image {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
