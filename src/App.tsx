@@ -21,10 +21,19 @@ const Obiekty: CelestialObject[] = [
 ];
 
 export default function App() {
-    const [objects] = useState<CelestialObject[]>(Obiekty);
+    const [objects, setObjects] = useState<CelestialObject[]>(Obiekty);
 
     const [selectedId, setSelectedId] = useState<string | null>(null);
+
     const selectedObject = objects.find(obj => obj.id === selectedId) || null;
+
+    const handleAddObject = (nowyObiekt: Omit<CelestialObject, 'id'>) => {
+        const obiektZId: CelestialObject = {
+            ...nowyObiekt,
+            id: Date.now().toString()
+        };
+        setObjects([...objects, obiektZId]);
+    };
 
     return (
         <div className="app-theme">
@@ -33,7 +42,6 @@ export default function App() {
             </header>
 
             <main className="app-content">
-
                 <section className="left-panel">
                     <CatalogList
                         listaObiektow={objects}
@@ -50,9 +58,8 @@ export default function App() {
                 </section>
 
                 <section className="right-panel">
-                    <DiscoveryForm />
+                    <DiscoveryForm dodajObiekt={handleAddObject} />
                 </section>
-
             </main>
         </div>
     );
