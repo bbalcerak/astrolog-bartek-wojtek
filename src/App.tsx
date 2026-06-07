@@ -23,6 +23,9 @@ const Obiekty: CelestialObject[] = [
 export default function App() {
     const [objects] = useState<CelestialObject[]>(Obiekty);
 
+    const [selectedId, setSelectedId] = useState<string | null>(null);
+    const selectedObject = objects.find(obj => obj.id === selectedId) || null;
+
     return (
         <div className="app-theme">
             <header className="app-header">
@@ -30,21 +33,26 @@ export default function App() {
             </header>
 
             <main className="app-content">
+
                 <section className="left-panel">
                     <CatalogList
                         listaObiektow={objects}
-                        kliknietoObiekt={() => {}}
-                        wybraneId={null}
+                        kliknietoObiekt={setSelectedId}
+                        wybraneId={selectedId}
                     />
                 </section>
 
                 <section className="center-panel">
-                    <ObjectDetails/>
+                    <ObjectDetails
+                        obiekt={selectedObject}
+                        zakonczObserwacje={() => setSelectedId(null)}
+                    />
                 </section>
 
                 <section className="right-panel">
                     <DiscoveryForm />
                 </section>
+
             </main>
         </div>
     );
