@@ -35,6 +35,15 @@ export default function App() {
         setObjects([...objects, obiektZId]);
     };
 
+    const handleDeleteObject = (idDoUsuniecia: string) => {
+        const zaktualizowanaLista = objects.filter(obj => obj.id !== idDoUsuniecia);
+        setObjects(zaktualizowanaLista);
+
+        if (selectedId === idDoUsuniecia) {
+            setSelectedId(null);
+        }
+    };
+
     return (
         <div className="app-theme">
             <header className="app-header">
@@ -54,6 +63,7 @@ export default function App() {
                     <ObjectDetails
                         obiekt={selectedObject}
                         zakonczObserwacje={() => setSelectedId(null)}
+                        usunObiekt={handleDeleteObject}
                     />
                 </section>
 
