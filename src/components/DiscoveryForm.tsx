@@ -1,28 +1,58 @@
-﻿export function DiscoveryForm() {
+﻿import { useState, type FormEvent } from 'react';
+
+interface Props {
+    dodajObiekt: (nowyObiekt: { name: string; type: string; distance: string; imageUrl: string }) => void;
+}
+
+export function DiscoveryForm({ dodajObiekt }: Props) {
+    const [name, setName] = useState('');
+    const [type, setType] = useState('');
+    const [distance, setDistance] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
+        if (!name || !type || !distance || !imageUrl) {
+            setError('Wszystkie pola muszą być wypełnione!');
+            return;
+        }
+
+        setError('');
+        dodajObiekt({ name, type, distance, imageUrl });
+
+        setName('');
+        setType('');
+        setDistance('');
+        setImageUrl('');
+    };
+
     return (
         <div className="discovery-form-container">
             <h2>Rejestr Odkryć</h2>
 
+            {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
 
-            <form className="discovery-form">
+            <form className="discovery-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Nazwa obiektu:</label>
-                    <input type="text" placeholder="np. Kepler-22b" required />
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="np. Kepler-22b" />
                 </div>
 
                 <div className="form-group">
                     <label>Typ obiektu:</label>
-                    <input type="text" placeholder="np. Egzoplaneta" required />
+                    <input type="text" value={type} onChange={(e) => setType(e.target.value)} placeholder="np. Egzoplaneta" />
                 </div>
 
                 <div className="form-group">
                     <label>Odległość od Ziemi:</label>
-                    <input type="text" placeholder="np. 620 lat świetlnych" required />
+                    <input type="text" value={distance} onChange={(e) => setDistance(e.target.value)} placeholder="np. 620 lat świetlnych" />
                 </div>
 
                 <div className="form-group">
                     <label>Link do zdjęcia (URL):</label>
-                    <input type="url" placeholder="https://images.unsplash.com/..." required />
+                    <input type="url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="https://..." />
                 </div>
 
                 <button type="submit" className="submit-btn">Dodaj obiekt</button>

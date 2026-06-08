@@ -21,7 +21,28 @@ const Obiekty: CelestialObject[] = [
 ];
 
 export default function App() {
-    const [objects] = useState<CelestialObject[]>(Obiekty);
+    const [objects, setObjects] = useState<CelestialObject[]>(Obiekty);
+
+    const [selectedId, setSelectedId] = useState<string | null>(null);
+
+    const selectedObject = objects.find(obj => obj.id === selectedId) || null;
+
+    const handleAddObject = (nowyObiekt: Omit<CelestialObject, 'id'>) => {
+        const obiektZId: CelestialObject = {
+            ...nowyObiekt,
+            id: Date.now().toString()
+        };
+        setObjects([...objects, obiektZId]);
+    };
+
+    const handleDeleteObject = (idDoUsuniecia: string) => {
+        const zaktualizowanaLista = objects.filter(obj => obj.id !== idDoUsuniecia);
+        setObjects(zaktualizowanaLista);
+
+        if (selectedId === idDoUsuniecia) {
+            setSelectedId(null);
+        }
+    };
 
     return (
         <div className="app-theme">
@@ -33,17 +54,21 @@ export default function App() {
                 <section className="left-panel">
                     <CatalogList
                         listaObiektow={objects}
-                        kliknietoObiekt={() => {}}
-                        wybraneId={null}
+                        kliknietoObiekt={setSelectedId}
+                        wybraneId={selectedId}
                     />
                 </section>
 
                 <section className="center-panel">
-                    <ObjectDetails/>
+                    <ObjectDetails
+                        obiekt={selectedObject}
+                        zakonczObserwacje={() => setSelectedId(null)}
+                        usunObiekt={handleDeleteObject}
+                    />
                 </section>
 
                 <section className="right-panel">
-                    <DiscoveryForm />
+                    <DiscoveryForm dodajObiekt={handleAddObject} />
                 </section>
             </main>
         </div>
